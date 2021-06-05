@@ -33,7 +33,7 @@ const schema = {
     type: DataTypes.INTEGER,
     allowNull: false,
     References: {
-      model: "Category",
+      model: "category",
       key: "id",
     },
   },
@@ -49,7 +49,6 @@ const options = {
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model {}
 
-// set up fields and rules for Product model
 Product.init(schema, options);
 
 module.exports = Product;

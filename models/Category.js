@@ -9,7 +9,7 @@ const schema = {
     autoIncrement: true,
     allowNull: false,
   },
-  name: {
+  category_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -20,7 +20,7 @@ const options = {
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: "category",
+  modelName: "Category",
 };
 
 class Category extends Model {}
