@@ -18,7 +18,7 @@ const schema = {
     type: DataTypes.DECIMAL,
     allowNull: false,
     validate: {
-      decimal: true,
+      isDecimal: true,
     },
   },
   stock: {
@@ -26,7 +26,7 @@ const schema = {
     default: 10,
     allowNull: false,
     validate: {
-      INTEGER: true,
+      isNumeric: true,
     },
   },
   category_id: {
