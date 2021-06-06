@@ -49,9 +49,37 @@ router.post("/", async (req, res) => {
 });
 
 // update a category by its `id` value
-router.put("/:id", (req, res) => {});
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const category = await Category.update(
+      {
+        category_name: req.body.category_name,
+      },
+      {
+        where: {
+          id,
+        },
+        returning: true,
+      }
+    );
+    res.json(category);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: "Failed to update category" });
+  }
+});
 
 // delete a category by its `id` value
-router.delete("/:id", (req, res) => {});
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const category = await Category.destroy({ where: { id } });
+    res.json(category);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: "Failed to delete category" });
+  }
+});
 
 module.exports = router;
